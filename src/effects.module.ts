@@ -1,8 +1,15 @@
-import { NgModule, Injector, Type, APP_BOOTSTRAP_LISTENER, OpaqueToken } from '@angular/core';
+import {
+  APP_BOOTSTRAP_LISTENER,
+  Injector,
+  NgModule,
+  Type
+} from '@angular/core';
 import { Actions } from './actions';
-import { EffectsSubscription, effects } from './effects-subscription';
-import { runAfterBootstrapEffects, afterBootstrapEffects } from './bootstrap-listener';
-
+import {
+  afterBootstrapEffects,
+  runAfterBootstrapEffects
+} from './bootstrap-listener';
+import { effects, EffectsSubscription } from './effects-subscription';
 
 @NgModule({
   providers: [
@@ -11,7 +18,7 @@ import { runAfterBootstrapEffects, afterBootstrapEffects } from './bootstrap-lis
     {
       provide: APP_BOOTSTRAP_LISTENER,
       multi: true,
-      deps: [ Injector, EffectsSubscription ],
+      deps: [Injector, EffectsSubscription],
       useFactory: runAfterBootstrapEffects
     }
   ]
