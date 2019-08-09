@@ -13,7 +13,7 @@ export function runAfterBootstrapEffects(
     const effectInstances = injector.get(afterBootstrapEffects, false);
 
     if (effectInstances) {
-      subscription.addEffects(effectInstances);
+      subscription.addEffects(effectInstances as any[]);
     }
   };
 }
